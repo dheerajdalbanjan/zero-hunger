@@ -30,8 +30,6 @@ const Page = () => {
   const router = useRouter()
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('') ;
-  const route = useSearchParams() ;
-  const callback_url = route.get('callbackUrl')
 
   const onSubmit = async (value: z.infer<typeof formSchema>) => {
     const { email, password } = value;
@@ -50,7 +48,7 @@ const Page = () => {
       setLoading(false)
       
 
-      router.replace(callback_url || '/')
+      router.replace('/')
       console.log('success')
     } catch (error) {
       console.log('error')
