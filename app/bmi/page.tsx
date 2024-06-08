@@ -29,7 +29,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-const GaugeChart = dynamic(() => import('react-gauge-chart'), { ssr: false });
+
+// @ts-ignore
+
+const GaugeChart: any = dynamic(() => import('react-gauge-chart') , { ssr: false });
 
 const formSchema = z.object({
   height: z.string(),
