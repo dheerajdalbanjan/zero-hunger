@@ -1,5 +1,5 @@
 "use client";
-const GaugeChart = require("react-gauge-chart")
+import dynamic from 'next/dynamic'; // Import dynamic for dynamic loading
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -29,6 +29,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+const GaugeChart = dynamic(() => import('react-gauge-chart'), { ssr: false });
 
 const formSchema = z.object({
   height: z.string(),
@@ -37,14 +38,14 @@ const formSchema = z.object({
 
 const Bmi = () => {
   const [open, setOpen] = useState(false);
-  const [bmi, setBmi] = useState(0);
+  const [bmi, setBmi] = useState(1);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     console.log(data);
-    const b = (Number(data.weight) / Number(data.height) ** 2) * 10000;
+    const b = Number((Number(data.weight) / Number(data.height) ** 2) * 10000);
     setBmi(b);
     setOpen(true);
   };
