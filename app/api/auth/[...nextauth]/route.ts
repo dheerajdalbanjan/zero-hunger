@@ -14,7 +14,6 @@ const authOption: NextAuthOptions = {
       id: "credentials",
       credentials: {},
       async authorize(credentials) {
-        console.log('ara bhai ')
         const { email, password } = (credentials as any)
 
         try {
@@ -28,6 +27,7 @@ const authOption: NextAuthOptions = {
           if (password != user?.password) {
             throw new Error('Password did not match')
           }
+          console.log(user)
           return user;
         } catch (error) {
           console.error("Authentication error:", error);
@@ -47,7 +47,8 @@ const authOption: NextAuthOptions = {
     })
   ],
   session: {
-    strategy: "jwt"
+    strategy: "jwt",
+
   },
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
