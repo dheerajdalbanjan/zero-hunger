@@ -23,6 +23,7 @@ const Navbar = () => {
       <div className='md:flex items-center space-x-5 hidden'>
         <a className='text-base hover:opacity-80 transition-colors duration-300' href="/">Home</a>
         <a className='text-base hover:opacity-80 transition-colors duration-300' href="">About</a>
+        <a className='text-base hover:opacity-80 transition-colors duration-300' href="/donate">Donate</a>
         <DropdownMenu>
           <DropdownMenuTrigger className='flex items-center space-x-4'>Tools <ChevronDown className='ml-1 text-neutral-700 w-5' /></DropdownMenuTrigger>
           <DropdownMenuContent className='bg-opacity-50 filter backdrop-blur-xl'>
@@ -31,6 +32,8 @@ const Navbar = () => {
             </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
+        <a className='text-base hover:opacity-80 transition-colors duration-300' href="/donations">All donations</a>
+
         {!session && <a className='text-base hover:opacity-80 transition-colors duration-300' href="/registration">Registration</a>}
         {!session && <a className='text-base hover:opacity-80 transition-colors duration-300' href="/login">Log in</a>}
         {session && <DropdownMenu>
@@ -46,6 +49,7 @@ const Navbar = () => {
               <DropdownMenuGroup>
                 <DropdownMenuItem>{session?.user?.name}</DropdownMenuItem>
                 <DropdownMenuItem>{session?.user?.email}</DropdownMenuItem>
+                <a href="/mydonations"><DropdownMenuItem>My donations</DropdownMenuItem></a>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={()=>signOut()}>Log out</DropdownMenuItem>
               </DropdownMenuGroup>

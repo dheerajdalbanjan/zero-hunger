@@ -5,7 +5,12 @@ import NextAuth from "next-auth"
 import { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 
-
+interface CustomUser {
+  id: string;
+  name?: string | null;
+  email?: string | null;
+  image?: string | null;
+}
 
 const authOption: NextAuthOptions = {
   providers: [
@@ -14,13 +19,13 @@ const authOption: NextAuthOptions = {
       id: "credentials",
       credentials: {},
       async authorize(credentials) {
-        const { email, password } = (credentials as any)
-
+        let { email, password } = (credentials as any)
+        const e = email ;
         try {
           // ... authentication logic
           const db = await connectMongo();
 
-          const user = await User.findOne({ email: email })
+          const user = await User.findOne({ email: e })
           if (!user) {
             throw new Error('Email not found')
           }
@@ -28,6 +33,7 @@ const authOption: NextAuthOptions = {
             throw new Error('Password did not match')
           }
           console.log(user)
+          const {name, email, _id, phone} = user ;
           return user;
         } catch (error) {
           console.error("Authentication error:", error);
@@ -49,6 +55,21 @@ const authOption: NextAuthOptions = {
   session: {
     strategy: "jwt",
 
+  },
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
+    },
+    async session({ session, token, user }) {
+      if (session && session.user) {
+        session.user._id = token.id as string;
+      }
+      
+      return session;
+    }
   },
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
