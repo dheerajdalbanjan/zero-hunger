@@ -22,7 +22,7 @@ const Mydonations = () => {
         </div>
       )}
         <h1 className='text-3xl font-bold my-3 antialiased'>Donations</h1>
-        {data &&  data.map((e: any, i: number)=>
+        {data &&  data.reverse().map((e: any, i: number)=>
         
           <Card key={i} className='my-5 rounded-lg shadow-lg'>
               <CardHeader className='rounded-xl bg-emerald-100'>

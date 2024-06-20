@@ -135,7 +135,7 @@ const Page = () => {
                           <SelectValue placeholder="select your role" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="NGO">NGO</SelectItem>
+                          <SelectItem value="Donor">Donor</SelectItem>
                           <SelectItem value="Needy">Needy</SelectItem>
                         </SelectContent>
                       </Select>

@@ -28,7 +28,7 @@ const Navbar = () => {
           <DropdownMenuTrigger className='flex items-center space-x-4'>Tools <ChevronDown className='ml-1 text-neutral-700 w-5' /></DropdownMenuTrigger>
           <DropdownMenuContent className='bg-opacity-50 filter backdrop-blur-xl'>
             <DropdownMenuGroup>
-              <DropdownMenuItem><Link href={'bmi'}>bmi calculator</Link></DropdownMenuItem>
+              <DropdownMenuItem><a href={'bmi'}>bmi calculator</a></DropdownMenuItem>
             </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
