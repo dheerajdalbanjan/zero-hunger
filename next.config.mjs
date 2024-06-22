@@ -15,7 +15,9 @@ const nextConfig = {
                 hostname: "assets.weforum.org"
             }
         ]
-    }
+    },experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
 };
 
 export default nextConfig;
