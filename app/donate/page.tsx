@@ -43,7 +43,7 @@ const Donate = () => {
      const userId = user?.user?._id ;
      setLoading(true)
      fetch('/api/donation', {method : 'POST', headers:{'content-type': 'application/json'}, body:JSON.stringify({title, description, quantity, user: userId})})
-     .then(res=>{if(res.ok){console.log("successfully added donation.")}})
+     .then(res=>{if(res.ok){alert("successfully added donation.")}})
         .finally(()=>setLoading(false))
   };
   return (
