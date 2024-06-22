@@ -1,3 +1,10 @@
-export { default } from "next-auth/middleware"
+// middleware.ts
+import { withAuth } from 'next-auth/middleware'
 
-export const config = { matcher: ["/donate","/mydonations"] }
+export default withAuth({
+  pages: {
+    signIn: '/login', // Redirect to the login page if not authenticated
+  },
+});
+
+export const config = { matcher: ["/donate", "/mydonations"] };
