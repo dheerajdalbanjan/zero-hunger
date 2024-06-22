@@ -48,9 +48,9 @@ const Page = () => {
 
       setSuccess(true)
       setLoading(false)
+      console.log(callback)
       
-      
-      router.push(callback? callback:'/')
+      router.replace('/')
       console.log('success')
     } catch (error) {
       console.log('error')
