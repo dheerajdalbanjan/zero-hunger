@@ -15,27 +15,29 @@ const Navbar = () => {
 
   return (
     <div className='px-4 bg-[#FFF3CF]'>
-    <div className='py-5 max-w-7xl mx-auto flex items-center justify-between  '>
+    <div className='py-4 max-w-7xl mx-auto flex items-center justify-between  '>
       <a href='/' className='relative text-neutral-700 '>
         <p className='text-4xl font-semibold'>0</p>
         <p className='absolute left-6 text-xl  top-2'>Hunger</p>
       </a>
-      <div className='md:flex items-center space-x-5 hidden'>
-        <a className='text-base hover:opacity-80 transition-colors duration-300' href="/">Home</a>
-        <a className='text-base hover:opacity-80 transition-colors duration-300' href="">About</a>
-        <a className='text-base hover:opacity-80 transition-colors duration-300' href="/donate">Donate</a>
+      <div className='md:flex items-center  hidden'>
+        <a className='  px-4 active:scale-90 transition-all rounded-lg py-2 hover:bg-amber-600/20 duration-300' href="/">Home</a>
+        <a className='text-base px-4 active:scale-90 transition-all rounded-lg py-2 hover:bg-amber-600/20 duration-300' href="">About</a>
+        <a className='text-base px-4 active:scale-90 transition-all rounded-lg py-2 hover:bg-amber-600/20 duration-300' href="/donate">Donate</a>
+        
+
         <DropdownMenu>
-          <DropdownMenuTrigger className='flex items-center space-x-4'>Tools <ChevronDown className='ml-1 text-neutral-700 w-5' /></DropdownMenuTrigger>
+          <DropdownMenuTrigger className='flex items-center space-x-4 px-4 outline-none border-none active:scale-90 transition-all duration-300 rounded-lg py-2 hover:bg-amber-600/20'>Tools <ChevronDown className='ml-1 text-neutral-700 w-5' /></DropdownMenuTrigger>
           <DropdownMenuContent className='bg-opacity-50 filter backdrop-blur-xl'>
             <DropdownMenuGroup>
-              <DropdownMenuItem><a href={'bmi'}>bmi calculator</a></DropdownMenuItem>
+              <DropdownMenuItem ><a href={'bmi'}>bmi calculator</a></DropdownMenuItem>
             </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
-        <a className='text-base hover:opacity-80 transition-colors duration-300' href="/donations">All donations</a>
+        <a className='text-base px-4 active:scale-90 transition-all rounded-lg py-2 hover:bg-amber-600/20 duration-300' href="/donations">All donations</a>
 
-        {!session && <a className='text-base hover:opacity-80 transition-colors duration-300' href="/registration">Registration</a>}
-        {!session && <a className='text-base hover:opacity-80 transition-colors duration-300' href="/login">Log in</a>}
+        {!session && <a className='text-base px-4 active:scale-90 transition-all rounded-lg py-2 hover:bg-amber-600/20 duration-300' href="/registration">Registration</a>}
+        {!session && <a className='text-base px-4 active:scale-90 transition-all rounded-lg py-2 hover:bg-amber-600/20 duration-300' href="/login">Log in</a>}
         {session && <DropdownMenu>
           
             <DropdownMenuTrigger className='focus:outline-none'>

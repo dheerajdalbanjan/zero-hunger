@@ -27,6 +27,7 @@ const Page = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   })
+  const query = useSearchParams() ;
   const router = useRouter()
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('') ;
@@ -47,8 +48,8 @@ const Page = () => {
       setSuccess(true)
       setLoading(false)
       
-
-      router.replace('/')
+      const callback = query.get('callbackUrl')
+      router.replace(callback? callback:'/')
       console.log('success')
     } catch (error) {
       console.log('error')

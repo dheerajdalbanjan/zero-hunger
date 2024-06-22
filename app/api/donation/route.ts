@@ -137,3 +137,22 @@ export async function GET(req: Request){
         return NextResponse.json({message: "Failed"}, {status: 500})
     }
 }
+
+
+export async function DELETE(req: Request){
+
+  try {
+    const data = await req.json() ; 
+    await connectMongo( ); 
+
+    const id = data._id ;
+
+    const delet = await donation.findByIdAndDelete(id) ; 
+    if(delet) {
+      return NextResponse.json({message: 'deleted successfully'}, {status: 200})
+    }
+  } catch (error) {
+    console.log(error) ; 
+    return NextResponse.json({message: 'Error while deleting'}, {status: 500})
+  }
+}
