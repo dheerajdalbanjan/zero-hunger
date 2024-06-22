@@ -37,7 +37,7 @@ const Page = () => {
     const { email, password } = value;
     try {
       setLoading(true)
-      const res = await signIn("credentials", {email, password,redirect:false})
+      const res = await signIn("credentials", {email, password, callbackUrl:callback || '/'})
       console.log(res?.status)
       if (res?.error) {
         console.log(res.error)
@@ -50,7 +50,7 @@ const Page = () => {
       setLoading(false)
       console.log(callback)
       
-      router.replace('/')
+      //router.replace('/')
       console.log('success')
     } catch (error) {
       console.log('error')
