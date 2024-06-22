@@ -98,7 +98,7 @@ export async function GET(req: Request){
 
         if (data ){
 
-        return NextResponse.json({message: "success data",data },{status: 200})}
+        return NextResponse.json({message: "success data",data: data.reverse() },{status: 200})}
         else 
         return NextResponse.json({message: "No donations found"}, {status: 404})
     } catch (error) {
