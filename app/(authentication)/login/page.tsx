@@ -28,6 +28,7 @@ const Page = () => {
     resolver: zodResolver(formSchema),
   })
   const query = useSearchParams() ;
+  const callback = query.get('callbackUrl')
   const router = useRouter()
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('') ;
@@ -48,7 +49,7 @@ const Page = () => {
       setSuccess(true)
       setLoading(false)
       
-      const callback = query.get('callbackUrl')
+      
       router.replace(callback? callback:'/')
       console.log('success')
     } catch (error) {
