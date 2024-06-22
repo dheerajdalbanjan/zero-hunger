@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2 } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import React, { useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import {signIn} from 'next-auth/react'
@@ -59,6 +59,7 @@ const Page = () => {
 
 
   return (
+    <Suspense>
     <div className='min-h-screen bg-[#FFF3CF] px-24 py-5'>
         <Card className="md:max-w-3xl !w-full md:p-2 rounded-xl md:mx-auto mx-4 filter bg-opacity-50 backdrop-blur-md">
           <CardHeader>
@@ -113,6 +114,7 @@ const Page = () => {
           </CardContent>
         </Card>
     </div>
+    </Suspense>
   )
 }
 
