@@ -50,7 +50,7 @@ const Page = () => {
       setLoading(false)
       
       
-      router.replace(callback? callback:'/')
+      router.push(callback? callback:'/')
       console.log('success')
     } catch (error) {
       console.log('error')
