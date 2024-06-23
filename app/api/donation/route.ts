@@ -99,6 +99,22 @@ export async function POST(req: Request){
     }
 
 }
+export async function PUT(req: Request){
+
+    try {
+        await connectMongo() ;
+        const data = await req.json() ;
+        const {title, description, quantity, id} = data ; 
+        const res = await donation.findByIdAndUpdate(id, {title, description,quantity})
+
+        return NextResponse.json({message: "Donation updated added"}, {status: 200})
+    } catch (error) {
+        console.log(error)
+        return NextResponse.json({ message: "An error occured while updating Donation" }, { status: 500 })
+        
+    }
+
+}
 
 
 export async function GET(req: Request){

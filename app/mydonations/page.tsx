@@ -57,14 +57,17 @@ const Mydonations = () => {
         </div>}
         {data &&  data.map((e: any, i: number)=>
         
-          <Card key={i} className='mb-3 rounded-lg shadow-lg'>
+          <Card key={i} className='mb-3 rounded-lg shadow-lg bg-amber-50'>
               <CardHeader>
                 <CardTitle>{e.title}</CardTitle>
                 <CardDescription>{e.description}</CardDescription>
               </CardHeader>
               <CardContent className='flex items-center justify-between'>
                 <p className='text-lg'>Quantity: {e.quantity}</p>
+                <div className='flex space-x-2'>
+                <a href={`/editDonation/${e._id}`}><Button variant={'outline'} >Edit</Button></a>
                 <Button  onClick={()=>{handleDelete(e._id); setBloading(i)}} variant={'destructive'}>{bloading == i && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}Delete</Button>
+                </div>
               </CardContent>
           </Card>
           )}

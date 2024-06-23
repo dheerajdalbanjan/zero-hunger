@@ -22,7 +22,7 @@ const Navbar = () => {
       </a>
       <div className='md:flex items-center  hidden'>
         <a className='  px-4 active:scale-90 transition-all rounded-lg py-2 hover:bg-amber-600/20 duration-300' href="/">Home</a>
-        <a className='text-base px-4 active:scale-90 transition-all rounded-lg py-2 hover:bg-amber-600/20 duration-300' href="">About</a>
+        <a className='text-base px-4 active:scale-90 transition-all rounded-lg py-2 hover:bg-amber-600/20 duration-300' href="/about">About</a>
         <a className='text-base px-4 active:scale-90 transition-all rounded-lg py-2 hover:bg-amber-600/20 duration-300' href="/donate">Donate</a>
         
 
