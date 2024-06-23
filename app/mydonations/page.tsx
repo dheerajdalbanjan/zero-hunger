@@ -2,7 +2,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Loader2, LoaderIcon } from 'lucide-react';
+import { Loader2, LoaderIcon, MoveUpRight } from 'lucide-react';
 import React, { useEffect, useState } from 'react'
 
 const Mydonations = () => {
@@ -33,6 +33,7 @@ const Mydonations = () => {
         </div>
       )} */}
         <h1 className='text-3xl font-bold my-3 antialiased'>My Donations</h1>
+        {data && data.length == 0 && <p>No danations found. <a href="/donate" className='inline-flex items-center text-indigo-600 underline'>Donate <MoveUpRight className='w-4 ' /></a></p>}
         {loading && <div className='flex flex-col space-y-8 py-5'>
           <div className='w-full flex flex-col space-y-3 '>
             <Skeleton className='w-full rounded-lg h-20 '/>
