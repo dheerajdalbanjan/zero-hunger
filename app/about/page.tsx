@@ -38,16 +38,6 @@ const About = () => {
         </div>
       </div>
 
-      <div className="mt-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white shadow-lg rounded-lg px-6 py-8">
-            <h3 className="text-2xl font-bold text-gray-900 text-center">Our Story</h3>
-            <p className="mt-4 text-lg text-gray-500 text-center">
-              Founded with a vision to eradicate hunger, 0Hunger has been at the forefront of various initiatives to ensure food security for all. Our team is committed to making a tangible difference in the lives of people, focusing on sustainable and impactful solutions.
-            </p>
-          </div>
-        </div>
-    </div>
     </div>
   )
 }

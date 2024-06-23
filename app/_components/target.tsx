@@ -20,17 +20,17 @@ const Target = () => {
             className={`rounded-full active:scale-90 transition-all duration-300 ease-in-out px-4 py-1 ${value == 'one' ?"bg-emerald-200":''}`}
             value="one"
           >
-            2.1
+            SDG 2.1
           </TabsTrigger>
           <TabsTrigger
             value="two"
             className={`rounded-full active:scale-90 transition-all duration-300 ease-in-out px-4 py-1 ${value == 'two' ?"bg-emerald-200":''}`}
           >
-            2.2
+            SDG 2.2
           </TabsTrigger>
         </TabsList>
         <TabsContent className="flex items-center justify-between" value="one">
-          <motion.p initial={{scale:0.6}} whileInView={{scale:1}} className="max-w-3xl p-7 rounded-3xl my-5 bg-[#e8c97237]">
+          <motion.p initial={{scale:0.9}} whileInView={{scale:1}} className="max-w-3xl p-7 duration-300 rounded-3xl my-5 bg-[#e8c97237]">
             By 2030, end hunger and ensure access by all people, in particular
             the poor and people in vulnerable situations, including infants, to
             safe, nutritious, and sufficient food all year round. This target
@@ -51,7 +51,7 @@ const Target = () => {
           <Image height={400} width={400} alt="image" src="https://i.ytimg.com/vi/qX7NO6lTUso/maxresdefault.jpg" className="filter" />
         </TabsContent>
         <TabsContent className="flex items-center justify-between" value="two">
-          <motion.p initial={{scale:0.6}} whileInView={{scale:1}}  className="max-w-3xl p-7  rounded-3xl my-5 bg-[#e8c97237]">
+          <motion.p initial={{scale:0.9}} whileInView={{scale:1}}  className="max-w-3xl p-7  duration-300 rounded-3xl my-5 bg-[#e8c97237]">
             This specific target under SDG 2 aims to end all forms of
             malnutrition by 2030. It emphasizes addressing the nutritional needs
             of adolescent girls, pregnant and lactating women, and older

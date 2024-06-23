@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Loader2 } from 'lucide-react';
+import { Loader2, TriangleAlert } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import React, { Suspense, useState } from 'react'
 import { useForm } from 'react-hook-form';
@@ -37,7 +37,7 @@ const Page = () => {
     const { email, password } = value;
     try {
       setLoading(true)
-      const res = await signIn("credentials", {email, password, callbackUrl:callback || '/'})
+      const res = await signIn("credentials", {email, password, callbackUrl:callback || '/', redirect: false})
       console.log(res?.status)
       if (res?.error) {
         console.log(res.error)
@@ -50,7 +50,7 @@ const Page = () => {
       setLoading(false)
       console.log(callback)
       
-      //router.replace('/')
+      router.replace(callback || '/')
       console.log('success')
     } catch (error) {
       console.log('error')
@@ -99,6 +99,10 @@ const Page = () => {
                   </FormItem>
                 )}
               />
+
+                {error && <div className='bg-red-800/10 flex items-center text-red-800 !mt-5 py-3 font-medium rounded-lg px-5'>
+                  <TriangleAlert className='mr-2 ' /> {error}
+                </div>}
 
 <CardFooter className="w-full justify-end p-0">
                 <Button

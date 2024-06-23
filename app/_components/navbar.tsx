@@ -2,7 +2,7 @@
 
 
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { ArrowDown, ArrowDownNarrowWide, ChevronDown } from 'lucide-react';
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
@@ -47,13 +47,15 @@ const Navbar = () => {
             </AvatarFallback>
           </Avatar>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className='bg-opacity-80 filter backdrop-blur-xl'>
+            <DropdownMenuContent className='bg-amber-50 scale-105'>
+            <DropdownMenuLabel>Profile</DropdownMenuLabel>
+            <DropdownMenuSeparator />
               <DropdownMenuGroup>
                 <DropdownMenuItem>{session?.user?.name}</DropdownMenuItem>
                 <DropdownMenuItem>{session?.user?.email}</DropdownMenuItem>
                 <a href="/mydonations"><DropdownMenuItem>My donations</DropdownMenuItem></a>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={()=>signOut()}>Log out</DropdownMenuItem>
+                <DropdownMenuItem className='bg-red-800/5 hover:!bg-red-800/10 cursor-pointer transition-colors !text-red-800' onClick={()=>signOut()}>Log out</DropdownMenuItem>
               </DropdownMenuGroup>
             </DropdownMenuContent>
           
