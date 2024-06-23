@@ -9,7 +9,7 @@ import { AuthProvider } from "./provider";
 const inter = Bai_Jamjuree({subsets:['latin'],weight:'400'})
 
 export const metadata: Metadata = {
-  title: "Zero Hunger",
+  title: "0 Hunger",
   description: "Minor Project 1",
 };
 
