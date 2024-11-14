@@ -28,6 +28,7 @@ const formSchema: any = z.object({
   title: z.string().nonempty("Title is required"),
   description: z.string().nonempty("Description is required"),
   quantity: z.number().positive("Quantity must be a positive number"),
+  lastdate: z.string().date() 
 });
 
 const Donate = () => {
@@ -38,11 +39,11 @@ const Donate = () => {
 
   const [loading, setLoading] = useState(false)
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
-     const {title, description, quantity} = data ;
+     const {title, description, quantity, lastdate} = data ;
      const user= await getSession() ;
      const userId = user?.user?._id ;
      setLoading(true)
-     fetch('/api/donation', {method : 'POST', headers:{'content-type': 'application/json'}, body:JSON.stringify({title, description, quantity, user: userId})})
+     fetch('/api/donation', {method : 'POST', headers:{'content-type': 'application/json'}, body:JSON.stringify({title, description, quantity, user: userId, lastdate})})
      .then(res=>{if(res.ok){alert("successfully added donation.")}})
         .finally(()=>setLoading(false))
   };
@@ -90,6 +91,19 @@ const Donate = () => {
                     <FormLabel>Quantity</FormLabel>
                     <FormControl>
                       <Input   type="number" placeholder="enter the quantity" {...field} onChange={(e) => field.onChange(e.target.valueAsNumber)}/>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="lastdate"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Last date to avail the donation</FormLabel>
+                    <FormControl>
+                      <Input   type="date" placeholder="" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

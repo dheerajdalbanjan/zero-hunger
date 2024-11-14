@@ -116,7 +116,10 @@ const Mydonations = () => {
                     <p className='text-lg'>Name: {e.user.name}</p>
                     <p className='text-lg'>Email: {e.user.email}</p>
                 </div>
+                <div className='flex flex-col space-y-3'>
                 <p className='text-lg'>Quantity: {e._doc.quantity}</p>
+                <p>Last date to avail: {e._doc.lastdate.split('T')[0]}</p>
+                </div>
               </CardContent>
               <CardFooter className='flex justify-end'>
                 <Button onClick={()=> {setOpen(true); setDonation(e)}}>Receive</Button>

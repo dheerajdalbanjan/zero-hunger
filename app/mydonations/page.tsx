@@ -21,6 +21,7 @@ const Mydonations = () => {
     const handleDelete = async (id: any)=>{
       const res= await fetch('api/donation' , {method: 'DELETE', headers: {'Content-type': 'application/json'}, body: JSON.stringify({_id : id})}) ;
       const data = await res.json() ; 
+      
       if(res.ok){
         window.location.reload() ;
       }
@@ -33,7 +34,7 @@ const Mydonations = () => {
         </div>
       )} */}
         <h1 className='text-3xl font-bold my-3 antialiased'>My Donations</h1>
-        {data && data.length == 0 && <p>No danations found. <a href="/donate" className='inline-flex items-center text-indigo-600 underline'>Donate <MoveUpRight className='w-4 ' /></a></p>}
+        {data && data.length == 0 && <p>No donations found. <a href="/donate" className='inline-flex items-center text-indigo-600 underline'>Donate <MoveUpRight className='w-4 ' /></a></p>}
         {loading && <div className='flex flex-col space-y-8 py-5'>
           <div className='w-full flex flex-col space-y-3 '>
             <Skeleton className='w-full rounded-lg h-20 '/>
@@ -64,7 +65,10 @@ const Mydonations = () => {
                 <CardDescription>{e.description}</CardDescription>
               </CardHeader>
               <CardContent className='flex items-center justify-between'>
+                <div>
                 <p className='text-lg'>Quantity: {e.quantity}</p>
+                <p>Last Date to avail: {e.lastdate.split('T')[0]}</p>
+                </div>
                 <div className='flex space-x-2'>
                 <a href={`/editDonation/${e._id}`}><Button variant={'outline'} >Edit</Button></a>
                 <Button  onClick={()=>{handleDelete(e._id); setBloading(i)}} variant={'destructive'}>{bloading == i && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}Delete</Button>

@@ -106,3 +106,13 @@ export async function GET(req: Request){
         return NextResponse.json({message: "Failed"}, {status: 500})
     }
 }
+
+
+export async function POST(req: Request){
+
+  const id  = new mongoose.Types.ObjectId('667930251971251250197423') ;
+  const update = await donation.findByIdAndUpdate(id, {lastdate:Date.now() }) ;
+
+
+  return NextResponse.json({message: "alsdf"}, {status: 200})
+}

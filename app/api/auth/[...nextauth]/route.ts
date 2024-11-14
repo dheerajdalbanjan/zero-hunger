@@ -33,7 +33,7 @@ const authOption: NextAuthOptions = {
             throw new Error('Password did not match')
           }
           console.log(user)
-          const {name, email, _id, phone} = user ;
+          const {name, email, _id, phone, role} = user ;
           return user;
         } catch (error) {
           console.error("Authentication error:", error);
@@ -48,9 +48,7 @@ const authOption: NextAuthOptions = {
         }
       }
 
-
-
-    })
+      })
   ],
   session: {
     strategy: "jwt",

@@ -1,8 +1,10 @@
-import React from 'react'
+"use client"
 
+import React from 'react'
+import {motion} from 'framer-motion'
 const About = () => {
   return (
-    <div className='min-h-screen py-10 bg-amber-50 '>
+    <div className='min-h-screen py-10 bg-amber-50 relative'>
     <div className='max-w-7xl mx-auto  '>
         <div className="">
           <h2 className=" text-xl text-indigo-600 font-semibold tracking-wide uppercase">About Us</h2>
@@ -19,12 +21,12 @@ const About = () => {
         <div className="max-w-7xl mx-auto ">
           <div className="grid grid-cols-1 h-52 md:grid-cols-2 gap-8">
             <div className="flex flex-col  items-center text-center">
-              <div className="bg-amber-100 h-full shadow-lg rounded-lg px-6 py-8">
+              <motion.div initial={{scale:1}} whileHover={{scale:1.3, marginLeft:'5rem'}} className="bg-amber-100 h-full shadow-lg rounded-lg px-6 py-8">
                 <h3 className="text-2xl font-bold text-gray-900">Target 2.1</h3>
                 <p className="mt-4 text-lg text-gray-500">
                   End hunger and ensure access by all people, in particular the poor and people in vulnerable situations, including infants, to safe, nutritious, and sufficient food all year round.
                 </p>
-              </div>
+              </motion.div>
             </div>
             <div className="flex flex-col items-center text-center">
               <div className="bg-amber-100 shadow-lg h-full rounded-lg px-6 py-8">
